@@ -19,8 +19,13 @@ net.load_state_dict(torch.load(join(realpath(dirname(__file__)), 'SiamRPNVOT.mod
 net.eval().cuda()
 
 # image and init box
-image_files = sorted(glob.glob('./bag/*.jpg'))
-init_rbox = [334.02,128.36,438.19,188.78,396.39,260.83,292.23,200.41]
+
+#image_files = sorted(glob.glob('./human5/*.jpg'))
+#init_rbox = [326.0, 419.0, 338.0, 420.0, 336.0, 453.0, 326.0, 453.0] # human5
+#image_files = sorted(glob.glob('./bag/*.jpg'))
+#init_rbox = [334.02,128.36,438.19,188.78,396.39,260.83,292.23,200.41] # bag
+image_files = sorted(glob.glob('./rajeev/*.jpg'))
+init_rbox = [16.0, 445.0, 158.0, 445.0, 158.0, 715.0, 16.0, 715.0] # rajeev
 [cx, cy, w, h] = get_axis_aligned_bbox(init_rbox)
 
 # tracker init
